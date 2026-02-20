@@ -38,22 +38,17 @@ function showStep() {
     const step = storySteps[currentStepIndex];
     document.body.className = "theme-" + step.theme;
     
-    // Visibilidad de contenedores
     emergencyLight.classList.toggle('hidden', step.theme !== 'emergency');
     gamerContainer.classList.toggle('hidden', !step.theme.startsWith('gamer'));
     gamerChoice10.classList.toggle('hidden', step.theme !== 'gamer-choice');
     missionList.classList.toggle('hidden', step.theme !== 'gamer-missions');
     finalChoice.classList.toggle('hidden', step.theme !== 'final-question');
     
-    // El botón 'Continuar' solo se oculta en misiones o finales específicos
     const hideNext = (step.id === 10 || step.id === 11 || step.id === 13);
     btnNext.classList.toggle('hidden', hideNext);
 
     resetDodgingButton(btnGamerNo);
-
-    if (step.id === 10) {
-        setupDodgingButton(btnGamerNo);
-    }
+    if (step.id === 10) setupDodgingButton(btnGamerNo);
 
     mainImage.src = step.image;
     typeWriter(step.text, mainText);
@@ -72,12 +67,11 @@ function typeWriter(text, element) {
     type();
 }
 
-// CAMBIO DE PÁGINA GENÉRICO
 function nextStep() {
     screen.classList.add('page-flip-exit');
     setTimeout(() => {
         currentStepIndex++;
-        if (currentStepIndex >= storySteps.length) currentStepIndex = 0; // Evitar error al final
+        if (currentStepIndex >= storySteps.length) currentStepIndex = 0;
         showStep();
         screen.classList.remove('page-flip-exit');
         screen.classList.add('page-flip-enter');
@@ -85,8 +79,8 @@ function nextStep() {
     }, 400);
 }
 
-// COMPATIBILIDAD MÓVIL (Touch)
 function addClickAndTouch(element, callback) {
+    if (!element) return;
     element.addEventListener('click', (e) => {
         e.preventDefault();
         callback();
@@ -100,12 +94,11 @@ function addClickAndTouch(element, callback) {
 addClickAndTouch(btnNext, nextStep);
 addClickAndTouch(btnGamerYes, nextStep);
 
-function selectMission(id) {
-    alert("Has seleccionado la Misión " + id + ". ¡Preparando aventura!");
+// LÓGICA DE MISIONES (SIN ALERT)
+window.selectMission = function(id) {
     nextStep();
-}
+};
 
-// BOTÓN ESQUIVADOR (DODGING)
 function setupDodgingButton(btn) {
     const move = (e) => {
         if (e.type === 'touchstart') e.preventDefault();
@@ -126,7 +119,6 @@ function resetDodgingButton(btn) {
     btn.style.position = 'static';
 }
 
-// BOTÓN FINAL GIGANTE
 addClickAndTouch(btnNoFinal, () => {
     yesButtonScale += 0.8;
     btnYesFinal.style.transform = `scale(${yesButtonScale})`;
@@ -138,5 +130,4 @@ addClickAndTouch(btnYesFinal, () => {
     showStep();
 });
 
-// INICIALIZACIÓN
 showStep();
