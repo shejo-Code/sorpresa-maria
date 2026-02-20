@@ -24,12 +24,13 @@ body {
   height: 90vh;
   position: relative;
   perspective: 1500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .screen {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -39,95 +40,94 @@ body {
   transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.5s;
 }
 
-/* EFECTO DE PASO DE PÁGINA (LIBRO) */
-.page-flip-exit {
-  transform: rotateY(-110deg);
-  opacity: 0;
-  transform-origin: left center;
+/* EFECTO PASO DE PÁGINA */
+.page-flip-exit { transform: rotateY(-110deg); opacity: 0; transform-origin: left center; }
+.page-flip-enter { transform: rotateY(110deg); opacity: 0; transform-origin: left center; }
+
+/* CONTROLES CENTRADOS */
+.controls {
+  display: flex;
+  flex-direction: column; /* Gato arriba, Botón abajo */
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  width: 100%;
+  gap: 10px;
 }
 
-.page-flip-enter {
-  transform: rotateY(110deg);
-  opacity: 0;
-  transform-origin: left center;
+.cat-animation {
+  width: 50px;
+  height: 50px;
 }
 
-/* MODO EMERGENCIA */
-#emergency-light {
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  z-index: 100;
-  pointer-events: none;
-  animation: alarm 0.5s infinite;
+.btn {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  padding: 12px 40px; /* Más ancho para móviles */
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(255, 77, 109, 0.2);
 }
 
-@keyframes alarm {
-  0% { background: rgba(255,0,0,0.1); }
-  50% { background: rgba(0,0,255,0.1); }
-  100% { background: rgba(255,0,0,0.1); }
+/* MODO GAMER Y MISIONES (Botones también centrados) */
+#gamer-container, #mission-list, #final-choice {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* BOTONES GAMER ESTILO RETRO */
 .gamer-btn-main {
   font-family: 'Press Start 2P', cursive;
-  background: transparent;
-  color: #00ff00;
-  border: 4px solid #00ff00;
-  padding: 15px 30px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin: 10px;
+  background: transparent; color: #00ff00;
+  border: 4px solid #00ff00; padding: 15px 25px;
+  font-size: 0.9rem; cursor: pointer;
   animation: blink 0.8s infinite;
+  margin-bottom: 20px;
 }
 
-@keyframes blink {
-  0% { color: #00ff00; border-color: #00ff00; }
-  50% { color: #ff00ff; border-color: #ff00ff; }
-  100% { color: #00ff00; border-color: #00ff00; }
-}
-
-.gamer-btn-no {
-  font-family: 'Press Start 2P', cursive;
-  background: transparent;
-  color: #ff0000;
-  border: 2px solid #ff0000;
-  padding: 10px 20px;
-  font-size: 0.8rem;
-  cursor: pointer;
-  margin: 10px;
-  position: relative;
-}
-
-/* MISIONES */
 .mission-btn {
-  display: block; width: 100%;
-  background: transparent; color: #0ff;
-  border: 2px solid #0ff; padding: 10px;
-  margin: 10px 0; cursor: pointer;
-  text-align: left; font-family: 'Press Start 2P', cursive;
+  width: 85%; /* No ocupa todo el ancho, para que no toque los bordes */
+  margin: 5px auto;
   font-size: 0.6rem;
 }
 
-.mission-btn:hover:not(.locked) {
-  background: #0ff; color: #000;
-}
-
-.mission-btn.locked { border-color: #666; color: #666; cursor: not-allowed; }
-.lock-desc { font-size: 0.5rem; color: #ff0000; margin-top: 5px; font-family: 'Press Start 2P', cursive; }
-
-/* GENERAL */
+/* TARJETA PRINCIPAL */
 .story-card {
-  background: #111; width: 90%;
-  padding: 25px; border-radius: 10px;
-  box-shadow: 0 0 50px rgba(0,0,0,1);
-  text-align: center;
+  background: #111;
+  width: 85%; /* Un poco más pequeña para que no se pegue a los bordes del móvil */
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid #222;
+  box-shadow: 0 0 40px rgba(0,0,0,0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.image-container img { max-width: 100%; max-height: 200px; border-radius: 5px; }
-.controls { display: flex; align-items: center; gap: 15px; margin-top: 20px; }
-.btn { background: transparent; color: #ff4d6d; border: 2px solid #ff4d6d; padding: 10px 20px; cursor: pointer; font-weight: bold; }
+.image-container img {
+  max-width: 100%;
+  max-height: 220px;
+  border-radius: 10px;
+}
+
+.text-container {
+  margin: 15px 0;
+  min-height: 60px;
+  width: 100%;
+}
+
 .hidden { display: none !important; }
 
 /* BOTÓN FINAL CRECIENTE */
-.btn-final-yes { background: #ff4d6d; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-size: 1.5rem; cursor: pointer; transition: transform 0.2s; }
-.btn-final-no { background: #666; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-left: 10px; }
+.btn-final-yes { background: #ff4d6d; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-size: 1.5rem; transition: transform 0.2s; }
+.btn-final-no { background: #444; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; }
+
+@keyframes blink {
+  0%, 100% { border-color: #00ff00; color: #00ff00; }
+  50% { border-color: #ff00ff; color: #ff00ff; }
+}
