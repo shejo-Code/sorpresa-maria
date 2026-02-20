@@ -1,9 +1,8 @@
 :root {
   --primary-color: #ff4d6d;
-  --secondary-color: #ff8fa3;
-  --background-color: #fff0f3;
-  --text-color: #590d22;
-  --accent-color: #c9184a;
+  --secondary-color: #333;
+  --background-color: #000000;
+  --text-color: #ffffff;
 }
 
 body {
@@ -11,7 +10,7 @@ body {
   padding: 0;
   background-color: var(--background-color);
   font-family: 'Quicksand', sans-serif;
-  overflow: hidden; /* Para los corazones */
+  overflow: hidden;
   color: var(--text-color);
   display: flex;
   justify-content: center;
@@ -22,9 +21,9 @@ body {
 .main-container {
   width: 100%;
   max-width: 500px;
-  height: 80vh;
+  height: 90vh;
   position: relative;
-  z-index: 10;
+  perspective: 1500px;
 }
 
 .screen {
@@ -37,194 +36,98 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.5s;
+}
+
+/* EFECTO DE PASO DE PÁGINA (LIBRO) */
+.page-flip-exit {
+  transform: rotateY(-110deg);
   opacity: 0;
+  transform-origin: left center;
+}
+
+.page-flip-enter {
+  transform: rotateY(110deg);
+  opacity: 0;
+  transform-origin: left center;
+}
+
+/* MODO EMERGENCIA */
+#emergency-light {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 100;
   pointer-events: none;
-  transition: opacity 0.8s ease-in-out;
+  animation: alarm 0.5s infinite;
+}
+
+@keyframes alarm {
+  0% { background: rgba(255,0,0,0.1); }
+  50% { background: rgba(0,0,255,0.1); }
+  100% { background: rgba(255,0,0,0.1); }
+}
+
+/* BOTONES GAMER ESTILO RETRO */
+.gamer-btn-main {
+  font-family: 'Press Start 2P', cursive;
+  background: transparent;
+  color: #00ff00;
+  border: 4px solid #00ff00;
+  padding: 15px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 10px;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0% { color: #00ff00; border-color: #00ff00; }
+  50% { color: #ff00ff; border-color: #ff00ff; }
+  100% { color: #00ff00; border-color: #00ff00; }
+}
+
+.gamer-btn-no {
+  font-family: 'Press Start 2P', cursive;
+  background: transparent;
+  color: #ff0000;
+  border: 2px solid #ff0000;
+  padding: 10px 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin: 10px;
+  position: relative;
+}
+
+/* MISIONES */
+.mission-btn {
+  display: block; width: 100%;
+  background: transparent; color: #0ff;
+  border: 2px solid #0ff; padding: 10px;
+  margin: 10px 0; cursor: pointer;
+  text-align: left; font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+}
+
+.mission-btn:hover:not(.locked) {
+  background: #0ff; color: #000;
+}
+
+.mission-btn.locked { border-color: #666; color: #666; cursor: not-allowed; }
+.lock-desc { font-size: 0.5rem; color: #ff0000; margin-top: 5px; font-family: 'Press Start 2P', cursive; }
+
+/* GENERAL */
+.story-card {
+  background: #111; width: 90%;
+  padding: 25px; border-radius: 10px;
+  box-shadow: 0 0 50px rgba(0,0,0,1);
   text-align: center;
 }
 
-.screen.active {
-  opacity: 1;
-  pointer-events: all;
-}
+.image-container img { max-width: 100%; max-height: 200px; border-radius: 5px; }
+.controls { display: flex; align-items: center; gap: 15px; margin-top: 20px; }
+.btn { background: transparent; color: #ff4d6d; border: 2px solid #ff4d6d; padding: 10px 20px; cursor: pointer; font-weight: bold; }
+.hidden { display: none !important; }
 
-/* ESTILO DEL SOBRE */
-.envelope-wrapper {
-  perspective: 1000px;
-}
-
-.envelope {
-  position: relative;
-  width: 250px;
-  height: 180px;
-  background-color: var(--primary-color);
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.envelope:hover {
-  transform: translateY(-5px);
-}
-
-.flap {
-  position: absolute;
-  top: 0;
-  width: 0;
-  height: 0;
-  border-left: 125px solid transparent;
-  border-right: 125px solid transparent;
-  border-top: 100px solid var(--accent-color);
-  z-index: 3;
-  transform-origin: top;
-  transition: transform 0.6s ease-in-out;
-}
-
-.pocket {
-  position: absolute;
-  bottom: 0;
-  width: 250px;
-  height: 180px;
-  background-color: var(--primary-color);
-  z-index: 2;
-  border-radius: 0 0 10px 10px;
-}
-
-.pocket::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  width: 250px;
-  height: 180px;
-  background-color: rgba(0,0,0,0.05);
-  clip-path: polygon(0% 0%, 50% 50%, 100% 0%, 100% 100%, 0% 100%);
-}
-
-.letter {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  width: 230px;
-  height: 160px;
-  background: white;
-  z-index: 1;
-  transition: transform 0.6s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  box-sizing: border-box;
-}
-
-.letter p {
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.5rem;
-  color: var(--accent-color);
-  margin: 0;
-}
-
-.envelope.open .flap {
-  transform: rotateX(180deg);
-  z-index: 0;
-}
-
-.envelope.open .letter {
-  transform: translateY(-80px);
-  z-index: 2;
-}
-
-.instruction {
-  margin-top: 30px;
-  font-style: italic;
-  animation: bounce 2s infinite;
-}
-
-/* ESTILO DE LA HISTORIA */
-.story-card, .final-card {
-  background: white;
-  width: 90%;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-}
-
-.image-container img {
-  width: 100%;
-  max-height: 250px;
-  object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 20px;
-}
-
-.text-container {
-  min-height: 80px;
-  margin-bottom: 20px;
-}
-
-.btn {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 25px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-weight: 500;
-  box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3);
-}
-
-.btn:hover {
-  background-color: var(--accent-color);
-  transform: scale(1.05);
-}
-
-.btn-lg {
-  padding: 15px 35px;
-  font-size: 1.3rem;
-  margin: 10px;
-}
-
-.btn-danger {
-  background-color: #6c757d;
-  position: relative; /* Importante para el movimiento */
-}
-
-/* CORAZONES */
-#hearts-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.heart {
-  position: absolute;
-  font-size: 20px;
-  color: var(--primary-color);
-  opacity: 0.5;
-  animation: float 5s linear infinite;
-}
-
-@keyframes float {
-  0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-  40% {transform: translateY(-10px);}
-  60% {transform: translateY(-5px);}
-}
-
-.hidden { display: none; }
-
-.typewriter {
-  border-right: 2px solid var(--primary-color);
-  white-space: normal;
-  overflow: hidden;
-  margin: 0 auto;
-}
+/* BOTÓN FINAL CRECIENTE */
+.btn-final-yes { background: #ff4d6d; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-size: 1.5rem; cursor: pointer; transition: transform 0.2s; }
+.btn-final-no { background: #666; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-left: 10px; }

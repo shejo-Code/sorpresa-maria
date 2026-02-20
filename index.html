@@ -7,60 +7,57 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="theme-dark">
+    <!-- Overlay de Emergencia -->
+    <div id="emergency-light" class="hidden"></div>
+
     <div class="main-container">
-        
-        <!-- PANTALLA 1: EL SOBRE -->
-        <section id="screen-envelope" class="screen active">
-            <div class="envelope-wrapper">
-                <div class="envelope" id="envelope">
-                    <div class="flap"></div>
-                    <div class="pocket"></div>
-                    <div class="letter">
-                        <p>Para Maria... ✨</p>
+        <section id="story-screen" class="screen active">
+            <div id="card-container" class="story-card">
+                
+                <div id="image-wrapper" class="image-container">
+                    <img id="main-image" src="" alt="Recuerdo">
+                </div>
+
+                <div class="text-container">
+                    <p id="main-text" class="typewriter"></p>
+                </div>
+
+                <!-- MENÚ GAMER DINÁMICO (Pág 10 y 11) -->
+                <div id="gamer-container" class="hidden">
+                    <!-- Botones Pág 10 -->
+                    <div id="gamer-choice-10" class="hidden">
+                        <button id="btn-gamer-yes" class="gamer-btn-main">CONTINUE</button>
+                        <button id="btn-gamer-no" class="gamer-btn-no">NO</button>
+                    </div>
+
+                    <!-- Lista de Misiones Pág 11 -->
+                    <div id="mission-list" class="hidden">
+                        <button class="mission-btn" onclick="selectMission(1)">Misión 1: Ir a cenar 🍕</button>
+                        <button class="mission-btn" onclick="selectMission(2)">Misión 2: Paseo de fotos 📸</button>
+                        <button class="mission-btn" onclick="selectMission(3)">Misión 3: Una película 🍿</button>
+                        <button class="mission-btn locked" disabled>Misión 4: Ir a bailar (BLOQUEADO 🔒)</button>
+                        <p class="lock-desc">Nivel insuficiente: Derrota al jefe final (Permiso de la mamá)</p>
                     </div>
                 </div>
-            </div>
-            <p class="instruction">Haz clic en el sobre para abrirlo</p>
-        </section>
 
-        <!-- PANTALLA 2: LA HISTORIA INTERACTIVA -->
-        <section id="screen-story" class="screen">
-            <div class="story-card">
-                <div class="image-container">
-                    <img id="story-image" src="https://via.placeholder.com/400x300?text=Cargando+Recuerdo..." alt="Recuerdo">
+                <!-- CONTROLES ESTÁNDAR -->
+                <div id="standard-controls" class="controls">
+                    <img id="cat-reader" class="cat-animation" src="https://media.giphy.com/media/VbnUQpnihPSIgIX2v1/giphy.gif" alt="Gato">
+                    <button id="btn-next" class="btn">Continuar</button>
                 </div>
-                <div class="text-container">
-                    <p id="story-text" class="typewriter"></p>
+
+                <!-- BOTONES FINALES (Pág 13) -->
+                <div id="final-choice" class="hidden">
+                    <button id="btn-yes-final" class="btn-final-yes">SÍ 😍</button>
+                    <button id="btn-no-final" class="btn-final-no">No 😢</button>
                 </div>
-                <div class="controls">
-                    <button id="btn-next" class="btn">Continuar ❤️</button>
-                </div>
+
             </div>
         </section>
-
-        <!-- PANTALLA 3: LA PREGUNTA FINAL -->
-        <section id="screen-final" class="screen">
-            <div class="final-card">
-                <h1 id="final-title">Maria, ¿te gustaría salir conmigo este fin de semana?</h1>
-                <div class="final-buttons">
-                    <button id="btn-yes" class="btn btn-lg">¡SÍ! 😍</button>
-                    <button id="btn-no" class="btn btn-lg btn-danger">No 😢</button>
-                </div>
-                <div id="success-message" class="hidden">
-                    <h2>¡Sabía que dirías que sí! 🥳💖</h2>
-                    <p>Prepárate para una sorpresa inolvidable...</p>
-                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l41lTfuxfC1k3t-tS/giphy.gif" alt="Celebración">
-                </div>
-            </div>
-        </section>
-
     </div>
-
-    <!-- Corazones de fondo -->
-    <div id="hearts-container"></div>
 
     <script src="script.js"></script>
 </body>

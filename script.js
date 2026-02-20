@@ -1,66 +1,62 @@
-// CONFIGURACIÓN DE LA HISTORIA - PERSONALIZA ESTO MARIA
+// CONFIGURACIÓN DE LA HISTORIA - LAS 14 ESCENAS PARA MARIA
 const storySteps = [
-    {
-        text: "Hola Maria... ¿Sabes? Estaba recordando el día que nos conocimos.",
-        image: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=800&auto=format&fit=crop", // Cambia por tu foto
-    },
-    {
-        text: "Ese momento cambió mi vida por completo. Todavía recuerdo tu sonrisa...",
-        image: "https://images.unsplash.com/photo-1516589174184-c6852661448c?q=80&w=800&auto=format&fit=crop",
-    },
-    {
-        text: "Desde entonces, cada día a tu lado ha sido una aventura increíble.",
-        image: "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?q=80&w=800&auto=format&fit=crop",
-    },
-    {
-        text: "Por eso hoy quería decirte algo especial...",
-        image: "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?q=80&w=800&auto=format&fit=crop",
-    }
+    { id: 1, theme: "emergency", text: "MENSAJE IMPORTANTE PARA MARIA. Haz clic para abrir la carta 🚨📢", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L0qTl8hl84S64/giphy.gif" },
+    { id: 2, theme: "dark", text: "Solo remito esta carta para informarte que eres linda <3 , y que te bañes :v", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vA5mj9v6M5IA0/giphy.gif" },
+    { id: 3, theme: "dark", text: "Ya tenemos 8 presidentes en menos de 10 años y nosotros aun no aplicamos 🤨 ¿QUE?", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LpLd2NGvpaiys/giphy.gif" },
+    { id: 4, theme: "dark", text: "No te asustes, te comento: estos últimos meses me interesó la ProGRAMACION, estoy estudiando en casa (Python, Linux, GIS, automatización). Veo que los que trabajan en esto ganan mucho dinero 💸✨. Pero igual seguiré trabajando... y como parte de mi aprendizaje te envío esta CARTA virtual Maria. Utilicé HTML, JS, CSS y mi repositorio de GitHub.", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26tn33aiTi1jkl6H6/giphy.gif" },
+    { id: 5, theme: "dark", text: "Pero... tengo un problema...", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKVUn7iM8FMEU24/giphy.gif" },
+    { id: 6, theme: "dark", text: "Sucede que soy Gay u.u", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/S9K6UscvH7gMU/giphy.gif" },
+    { id: 7, theme: "dark", text: "Ok no, pongámonos serios XD. El problema es que cada día te recuerdo más seguido. Por momentos se siente bonito, pero por otros momentos un poco vacío ❤️🍺", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l46C6z7vYdvZBYzBK/giphy.gif" },
+    { id: 8, theme: "dark", text: "Por el momento no tengo muchos recursos, está lo de mi casa y la tesis también :,v, así que a veces me da un poco de pena no tener a donde llevarte o invitarte 😭", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/M28rUlcjueK9a/giphy.gif" },
+    { id: 9, theme: "dark", text: "Además está que llueve mucho XD, no da ganas de salir ☔️", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5atf8EVf9isAg8yYv5/giphy.gif" },
+    { id: 10, theme: "gamer-choice", text: "¿ASI QUE ESTAS LISTA PARA LA AVENTURA?", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7L963Gv2x7q9y/giphy.gif" },
+    { id: 11, theme: "gamer-missions", text: "Y por todo eso propongo hacer algo mañana. ELIGE TU MISIÓN:", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VbnUQpnihPSIgIX2v1/giphy.gif" },
+    { id: 12, theme: "dark", text: "Entonces...", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/t6XmH9Y8Rk-16/giphy.gif" },
+    { id: 13, theme: "final-question", text: "Maria, ¿te gustaría salir conmigo este fin de semana? 😳", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SshMv0y0K16Bq/giphy.gif" },
+    { id: 14, theme: "dark", text: "¡GENIAL! 💖 PSDTA: Con cariño, Jose", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZubZqIeC0O8og/giphy.gif" }
 ];
 
-// ELEMENTOS DEL DOM
-const screenEnvelope = document.getElementById('screen-envelope');
-const screenStory = document.getElementById('screen-story');
-const screenFinal = document.getElementById('screen-final');
-const envelope = document.getElementById('envelope');
-const storyText = document.getElementById('story-text');
-const storyImage = document.getElementById('story-image');
+// ELEMENTOS DOM
+const screen = document.getElementById('story-screen');
+const mainText = document.getElementById('main-text');
+const mainImage = document.getElementById('main-image');
 const btnNext = document.getElementById('btn-next');
-const btnNo = document.getElementById('btn-no');
-const btnYes = document.getElementById('btn-yes');
-const heartsContainer = document.getElementById('hearts-container');
-const finalTitle = document.getElementById('final-title');
-const finalButtons = document.querySelector('.final-buttons');
-const successMessage = document.getElementById('success-message');
+const gamerContainer = document.getElementById('gamer-container');
+const gamerChoice10 = document.getElementById('gamer-choice-10');
+const missionList = document.getElementById('mission-list');
+const btnGamerYes = document.getElementById('btn-gamer-yes');
+const btnGamerNo = document.getElementById('btn-gamer-no');
+const emergencyLight = document.getElementById('emergency-light');
+const finalChoice = document.getElementById('final-choice');
+const btnYesFinal = document.getElementById('btn-yes-final');
+const btnNoFinal = document.getElementById('btn-no-final');
 
-let currentStep = 0;
+let currentStepIndex = 0;
+let yesButtonScale = 1;
 
-// 1. ABRIR SOBRE
-envelope.addEventListener('click', () => {
-    envelope.classList.add('open');
-    setTimeout(() => {
-        switchScreen(screenEnvelope, screenStory);
-        showStep();
-    }, 1500);
-});
-
-// 2. MOSTRAR PASOS DE LA HISTORIA
 function showStep() {
-    if (currentStep < storySteps.length) {
-        const step = storySteps[currentStep];
-        storyImage.src = step.image;
-        typeWriter(step.text, storyText);
-    } else {
-        switchScreen(screenStory, screenFinal);
+    const step = storySteps[currentStepIndex];
+    document.body.className = "theme-" + step.theme;
+    
+    // Visibilidad de contenedores
+    emergencyLight.classList.toggle('hidden', step.theme !== 'emergency');
+    gamerContainer.classList.toggle('hidden', !step.theme.startsWith('gamer'));
+    gamerChoice10.classList.toggle('hidden', step.theme !== 'gamer-choice');
+    missionList.classList.toggle('hidden', step.theme !== 'gamer-missions');
+    finalChoice.classList.toggle('hidden', step.theme !== 'final-question');
+    btnNext.classList.toggle('hidden', step.theme === 'final-question' || step.theme === 'gamer-missions' || step.theme === 'gamer-choice');
+
+    // Reset de botones esquivadores
+    resetDodgingButton(btnGamerNo);
+
+    if (step.id === 10) {
+        setupDodgingButton(btnGamerNo);
     }
+
+    mainImage.src = step.image;
+    typeWriter(step.text, mainText);
 }
 
-btnNext.addEventListener('click', () => {
-    currentStep++;
-    showStep();
-});
-
-// 3. EFECTO MÁQUINA DE ESCRIBIR
 function typeWriter(text, element) {
     element.innerHTML = "";
     let i = 0;
@@ -68,66 +64,63 @@ function typeWriter(text, element) {
         if (i < text.length) {
             element.innerHTML += text.charAt(i);
             i++;
-            setTimeout(type, 50);
+            setTimeout(type, 20);
         }
     }
     type();
 }
 
-// 4. CAMBIO DE PANTALLAS
-function switchScreen(oldScreen, newScreen) {
-    oldScreen.classList.remove('active');
+// CAMBIO DE PÁGINA GENÉRICO
+function nextStep() {
+    screen.classList.add('page-flip-exit');
     setTimeout(() => {
-        newScreen.classList.add('active');
+        currentStepIndex++;
+        showStep();
+        screen.classList.remove('page-flip-exit');
+        screen.classList.add('page-flip-enter');
+        setTimeout(() => screen.classList.remove('page-flip-enter'), 50);
     }, 400);
 }
 
-// 5. BOTÓN QUE SE ESCAPA (DODGING BUTTON)
-function moveButton(btn) {
-    const maxX = window.innerWidth - btn.offsetWidth - 20;
-    const maxY = window.innerHeight - btn.offsetHeight - 20;
-    
-    const newX = Math.random() * maxX;
-    const newY = Math.random() * maxY;
-    
-    btn.style.position = 'fixed';
-    btn.style.left = `${newX}px`;
-    btn.style.top = `${newY}px`;
+btnNext.addEventListener('click', nextStep);
+btnGamerYes.addEventListener('click', nextStep);
+
+function selectMission(id) {
+    alert("Has seleccionado la Misión " + id + ". ¡Preparando aventura!");
+    nextStep();
 }
 
-// Para computadoras (mouse)
-btnNo.addEventListener('mouseover', () => moveButton(btnNo));
-
-// Para celulares (touch)
-btnNo.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    moveButton(btnNo);
-});
-
-// 6. BOTÓN SÍ
-btnYes.addEventListener('click', () => {
-    finalTitle.classList.add('hidden');
-    finalButtons.classList.add('hidden');
-    successMessage.classList.remove('hidden');
-    
-    // Intensificar lluvia de corazones
-    for(let i=0; i<30; i++) {
-        setTimeout(createHeart, i * 100);
-    }
-});
-
-// 7. LLUVIA DE CORAZONES
-function createHeart() {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    heart.innerHTML = '❤️';
-    heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.animationDuration = Math.random() * 2 + 3 + 's';
-    heartsContainer.appendChild(heart);
-    
-    setTimeout(() => {
-        heart.remove();
-    }, 5000);
+// BOTÓN ESQUIVADOR
+function setupDodgingButton(btn) {
+    const move = (e) => {
+        if (e.type === 'touchstart') e.preventDefault();
+        const x = Math.random() * (window.innerWidth - btn.offsetWidth - 40) + 20;
+        const y = Math.random() * (window.innerHeight - btn.offsetHeight - 40) + 20;
+        btn.style.position = 'fixed';
+        btn.style.left = x + 'px';
+        btn.style.top = y + 'px';
+        btn.style.zIndex = "1000";
+    };
+    btn.onmouseover = move;
+    btn.ontouchstart = move;
 }
 
-setInterval(createHeart, 600);
+function resetDodgingButton(btn) {
+    btn.onmouseover = null;
+    btn.ontouchstart = null;
+    btn.style.position = 'static';
+}
+
+// BOTÓN FINAL GIGANTE
+btnNoFinal.addEventListener('click', () => {
+    yesButtonScale += 0.8;
+    btnYesFinal.style.transform = `scale(${yesButtonScale})`;
+    if (yesButtonScale > 12) btnYesFinal.click();
+});
+
+btnYesFinal.addEventListener('click', () => {
+    currentStepIndex = 13;
+    showStep();
+});
+
+showStep();
