@@ -5,28 +5,31 @@
   --text-color: #ffffff;
 }
 
+* { box-sizing: border-box; } /* Crucial para que no se desborden los bordes */
+
 body {
   margin: 0;
   padding: 0;
   background-color: var(--background-color);
   font-family: 'Quicksand', sans-serif;
-  overflow: hidden;
+  overflow: hidden; /* Evita que la página entera se mueva */
   color: var(--text-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
 
 .main-container {
   width: 100%;
-  max-width: 500px;
-  height: 90vh;
+  max-width: 450px; /* Un poco más angosto para asegurar compatibilidad */
+  height: 100%;
   position: relative;
-  perspective: 1500px;
   display: flex;
   justify-content: center;
   align-items: center;
+  perspective: 1500px;
 }
 
 .screen {
@@ -34,100 +37,112 @@ body {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.5s;
+  transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.4s;
 }
 
 /* EFECTO PASO DE PÁGINA */
-.page-flip-exit { transform: rotateY(-110deg); opacity: 0; transform-origin: left center; }
-.page-flip-enter { transform: rotateY(110deg); opacity: 0; transform-origin: left center; }
+.page-flip-exit { transform: rotateY(-100deg); opacity: 0; transform-origin: left center; }
+.page-flip-enter { transform: rotateY(100deg); opacity: 0; transform-origin: left center; }
 
-/* CONTROLES CENTRADOS */
-.controls {
+/* TARJETA PRINCIPAL (La caja negra) */
+.story-card {
+  background: #111;
+  width: 92%; /* Ajuste para dejar margen a los lados */
+  max-height: 90vh; /* Que no sea más alta que la pantalla */
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid #333;
+  box-shadow: 0 0 30px rgba(0,0,0,1);
   display: flex;
-  flex-direction: column; /* Gato arriba, Botón abajo */
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-top: 25px;
+  justify-content: flex-start;
+  overflow-y: auto; /* Permite scroll interno si el texto es muy largo */
+}
+
+/* IMAGEN (Ajustada para que no empuje el botón) */
+.image-container {
   width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 180px; /* Reducido para que quepa todo en el celular */
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+/* TEXTO */
+.text-container {
+  width: 100%;
+  margin-bottom: 20px;
+  min-height: 50px;
+  text-align: center;
+}
+
+.typewriter {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 0;
+  word-wrap: break-word; /* Evita que palabras largas rompan el diseño */
+}
+
+/* CONTROLES (Gato + Botón) */
+.controls {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 10px;
+  margin-top: auto; /* Empuja el botón al fondo de la tarjeta */
 }
 
 .cat-animation {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
 }
 
 .btn {
   background: transparent;
   color: var(--primary-color);
   border: 2px solid var(--primary-color);
-  padding: 12px 40px; /* Más ancho para móviles */
-  border-radius: 8px;
-  font-size: 1.1rem;
-  cursor: pointer;
+  width: 80%; /* Ancho fijo relativo al contenedor */
+  max-width: 250px;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1rem;
   font-weight: bold;
-  box-shadow: 0 4px 15px rgba(255, 77, 109, 0.2);
+  cursor: pointer;
+  text-align: center;
 }
 
-/* MODO GAMER Y MISIONES (Botones también centrados) */
-#gamer-container, #mission-list, #final-choice {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
+/* MODO GAMER */
+#gamer-container { width: 100%; }
 .gamer-btn-main {
   font-family: 'Press Start 2P', cursive;
   background: transparent; color: #00ff00;
-  border: 4px solid #00ff00; padding: 15px 25px;
-  font-size: 0.9rem; cursor: pointer;
-  animation: blink 0.8s infinite;
-  margin-bottom: 20px;
+  border: 3px solid #00ff00; padding: 12px;
+  font-size: 0.8rem; width: 90%; margin: 10px auto;
+  display: block; animation: blink 0.8s infinite;
 }
 
 .mission-btn {
-  width: 85%; /* No ocupa todo el ancho, para que no toque los bordes */
-  margin: 5px auto;
-  font-size: 0.6rem;
-}
-
-/* TARJETA PRINCIPAL */
-.story-card {
-  background: #111;
-  width: 85%; /* Un poco más pequeña para que no se pegue a los bordes del móvil */
-  padding: 20px;
-  border-radius: 15px;
-  border: 1px solid #222;
-  box-shadow: 0 0 40px rgba(0,0,0,0.8);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.image-container img {
-  max-width: 100%;
-  max-height: 220px;
-  border-radius: 10px;
-}
-
-.text-container {
-  margin: 15px 0;
-  min-height: 60px;
-  width: 100%;
+  font-family: 'Press Start 2P', cursive;
+  width: 100%; font-size: 0.55rem; margin: 5px 0;
+  padding: 10px; background: transparent; color: #0ff;
+  border: 1px solid #0ff; text-align: left;
 }
 
 .hidden { display: none !important; }
 
-/* BOTÓN FINAL CRECIENTE */
-.btn-final-yes { background: #ff4d6d; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-size: 1.5rem; transition: transform 0.2s; }
-.btn-final-no { background: #444; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; }
+/* BOTÓN FINAL */
+#final-choice { width: 100%; display: flex; flex-direction: column; align-items: center; }
+.btn-final-yes { background: #ff4d6d; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-size: 1.2rem; }
+.btn-final-no { background: #444; color: white; border: none; padding: 10px; border-radius: 5px; margin-top: 15px; font-size: 0.8rem; }
 
-@keyframes blink {
-  0%, 100% { border-color: #00ff00; color: #00ff00; }
-  50% { border-color: #ff00ff; color: #ff00ff; }
-}
+@keyframes blink { 0%, 100% { border-color: #0ff; color: #0ff; } 50% { border-color: #f0f; color: #f0f; } }
