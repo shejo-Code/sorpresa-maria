@@ -44,9 +44,11 @@ function showStep() {
     gamerChoice10.classList.toggle('hidden', step.theme !== 'gamer-choice');
     missionList.classList.toggle('hidden', step.theme !== 'gamer-missions');
     finalChoice.classList.toggle('hidden', step.theme !== 'final-question');
-    btnNext.classList.toggle('hidden', step.theme === 'final-question' || step.theme === 'gamer-missions' || step.theme === 'gamer-choice');
+    
+    // El botón 'Continuar' solo se oculta en misiones o finales específicos
+    const hideNext = (step.id === 10 || step.id === 11 || step.id === 13);
+    btnNext.classList.toggle('hidden', hideNext);
 
-    // Reset de botones esquivadores
     resetDodgingButton(btnGamerNo);
 
     if (step.id === 10) {
@@ -75,6 +77,7 @@ function nextStep() {
     screen.classList.add('page-flip-exit');
     setTimeout(() => {
         currentStepIndex++;
+        if (currentStepIndex >= storySteps.length) currentStepIndex = 0; // Evitar error al final
         showStep();
         screen.classList.remove('page-flip-exit');
         screen.classList.add('page-flip-enter');
@@ -82,15 +85,27 @@ function nextStep() {
     }, 400);
 }
 
-btnNext.addEventListener('click', nextStep);
-btnGamerYes.addEventListener('click', nextStep);
+// COMPATIBILIDAD MÓVIL (Touch)
+function addClickAndTouch(element, callback) {
+    element.addEventListener('click', (e) => {
+        e.preventDefault();
+        callback();
+    });
+    element.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        callback();
+    }, { passive: false });
+}
+
+addClickAndTouch(btnNext, nextStep);
+addClickAndTouch(btnGamerYes, nextStep);
 
 function selectMission(id) {
     alert("Has seleccionado la Misión " + id + ". ¡Preparando aventura!");
     nextStep();
 }
 
-// BOTÓN ESQUIVADOR
+// BOTÓN ESQUIVADOR (DODGING)
 function setupDodgingButton(btn) {
     const move = (e) => {
         if (e.type === 'touchstart') e.preventDefault();
@@ -112,15 +127,16 @@ function resetDodgingButton(btn) {
 }
 
 // BOTÓN FINAL GIGANTE
-btnNoFinal.addEventListener('click', () => {
+addClickAndTouch(btnNoFinal, () => {
     yesButtonScale += 0.8;
     btnYesFinal.style.transform = `scale(${yesButtonScale})`;
     if (yesButtonScale > 12) btnYesFinal.click();
 });
 
-btnYesFinal.addEventListener('click', () => {
+addClickAndTouch(btnYesFinal, () => {
     currentStepIndex = 13;
     showStep();
 });
 
+// INICIALIZACIÓN
 showStep();
