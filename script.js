@@ -1,25 +1,47 @@
-// CONFIGURACIÓN DE LA HISTORIA - LAS 14 ESCENAS PARA MARIA
+// CONFIGURACIÓN DE LA HISTORIA CON IMÁGENES REALES (imX)
 const storySteps = [
-    { id: 1, theme: "emergency", text: "MENSAJE IMPORTANTE PARA MARIA. Haz clic para abrir la carta 🚨📢", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L0qTl8hl84S64/giphy.gif" },
-    { id: 2, theme: "dark", text: "Solo remito esta carta para informarte que eres linda <3 , y que te bañes :v", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vA5mj9v6M5IA0/giphy.gif" },
-    { id: 3, theme: "dark", text: "Ya tenemos 8 presidentes en menos de 10 años y nosotros aun no aplicamos 🤨 ¿QUE?", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LpLd2NGvpaiys/giphy.gif" },
-    { id: 4, theme: "dark", text: "No te asustes, te comento: estos últimos meses me interesó la ProGRAMACION, estoy estudiando en casa (Python, Linux, GIS, automatización). Veo que los que trabajan en esto ganan mucho dinero 💸✨. Pero igual seguiré trabajando... y como parte de mi aprendizaje te envío esta CARTA virtual Maria. Utilicé HTML, JS, CSS y mi repositorio de GitHub.", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26tn33aiTi1jkl6H6/giphy.gif" },
-    { id: 5, theme: "dark", text: "Pero... tengo un problema...", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKVUn7iM8FMEU24/giphy.gif" },
-    { id: 6, theme: "dark", text: "Sucede que soy Gay u.u", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/S9K6UscvH7gMU/giphy.gif" },
-    { id: 7, theme: "dark", text: "Ok no, pongámonos serios XD. El problema es que cada día te recuerdo más seguido. Por momentos se siente bonito, pero por otros momentos un poco vacío ❤️🍺", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l46C6z7vYdvZBYzBK/giphy.gif" },
-    { id: 8, theme: "dark", text: "Por el momento no tengo muchos recursos, está lo de mi casa y la tesis también :,v, así que a veces me da un poco de pena no tener a donde llevarte o invitarte 😭", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/M28rUlcjueK9a/giphy.gif" },
-    { id: 9, theme: "dark", text: "Además está que llueve mucho XD, no da ganas de salir ☔️", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5atf8EVf9isAg8yYv5/giphy.gif" },
-    { id: 10, theme: "gamer-choice", text: "¿ASI QUE ESTAS LISTA PARA LA AVENTURA?", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7L963Gv2x7q9y/giphy.gif" },
-    { id: 11, theme: "gamer-missions", text: "Y por todo eso propongo hacer algo mañana. ELIGE TU MISIÓN:", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VbnUQpnihPSIgIX2v1/giphy.gif" },
-    { id: 12, theme: "dark", text: "Entonces...", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/t6XmH9Y8Rk-16/giphy.gif" },
-    { id: 13, theme: "final-question", text: "Maria, ¿te gustaría salir conmigo este fin de semana? 😳", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SshMv0y0K16Bq/giphy.gif" },
-    { id: 14, theme: "dark", text: "¡GENIAL! 💖 PSDTA: Con cariño, Jose", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZubZqIeC0O8og/giphy.gif" }
+    { 
+        id: 1, theme: "emergency", 
+        text: "MENSAJE IMPORTANTE PARA MARIA. Haz clic para abrir la carta 🚨📢", 
+        image: "img/im1.jpeg", 
+        btnText: "ABRIR CARTA"
+    },
+    { 
+        id: 2, theme: "dark", 
+        text: "Querida Maria,\nSolo remito esta carta para informarte que eres linda <3 , y que te bañes :v", 
+        image: "img/im2.png" 
+    },
+    { 
+        id: 3, theme: "dark", 
+        text: "Ya tenemos 8 presidentes en menos de 10 años y nosotros aun no aplicamos... ¿qué esperamos xd?", 
+        images: ["img/im3.png", "img/im4.png", "img/im5.png"] 
+    },
+    { 
+        id: 4, theme: "dark", 
+        text: "No te asustes, te comento: estos últimos meses me interesó la ProGRAMACION, estoy estudiando en casa (Python, Linux, GIS, automatización). Veo que los que trabajan en esto ganan mucho dinero. Pero igual seguiré trabajando... y como parte de mi aprendizaje te envío esta CARTA virtual Maria. Utilicé HTML, JS, CSS y mi repositorio de GitHub.", 
+        images: ["img/im6.png", "img/im7.png"] 
+    },
+    { id: 5, theme: "dark", text: "Pero... tengo un problema...", image: "img/im8.png" },
+    { id: 6, theme: "dark", text: "Sucede que soy Gay u.u", image: "img/im9.png" },
+    { id: 7, theme: "dark", text: "", image: "img/im10.png", fullImage: true },
+    { 
+        id: 8, theme: "dark", 
+        text: "Ok no, pongámonos serios XD. El problema es que cada día te recuerdo más seguido. Por momentos se siente bonito, pero por otros momentos un poco vacío ❤️🍺", 
+        images: ["img/im11.png", "img/im12.png"] 
+    },
+    { id: 9, theme: "dark", text: "Por el momento no tengo muchos recursos, está lo de mi casa y la tesis también :,v, así que a veces me da un poco de pena no tener a donde llevarte o invitarte 😭", image: "img/im13.png" },
+    { id: 10, theme: "dark", text: "Además está que llueve mucho XD, no da ganas de salir ☔️📰", image: "img/im14.png", isNews: true },
+    { id: 11, theme: "gamer-choice", text: "¿ASI QUE ESTAS LISTA PARA LA AVENTURA?", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7L963Gv2x7q9y/giphy.gif" },
+    { id: 12, theme: "gamer-missions", text: "Y por todo eso propongo hacer algo mañana. ELIGE TU MISIÓN:", image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2I4YmRjNDRkYjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZDI0YjY0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VbnUQpnihPSIgIX2v1/giphy.gif" },
+    { id: 13, theme: "final-question", text: "Maria, ¿te gustaría salir conmigo este fin de semana? 😳", image: "img/im16.png" },
+    { id: 14, theme: "dark", text: "¡GENIAL! 💖 PSDTA: Con cariño, Jose", images: ["img/im17.jpeg", "img/im18.jpeg"], isAlbum: true }
 ];
 
 // ELEMENTOS DOM
 const screen = document.getElementById('story-screen');
 const mainText = document.getElementById('main-text');
 const mainImage = document.getElementById('main-image');
+const imageWrapper = document.getElementById('image-wrapper');
 const btnNext = document.getElementById('btn-next');
 const gamerContainer = document.getElementById('gamer-container');
 const gamerChoice10 = document.getElementById('gamer-choice-10');
@@ -38,19 +60,56 @@ function showStep() {
     const step = storySteps[currentStepIndex];
     document.body.className = "theme-" + step.theme;
     
+    // Configuración de UI
     emergencyLight.classList.toggle('hidden', step.theme !== 'emergency');
     gamerContainer.classList.toggle('hidden', !step.theme.startsWith('gamer'));
     gamerChoice10.classList.toggle('hidden', step.theme !== 'gamer-choice');
     missionList.classList.toggle('hidden', step.theme !== 'gamer-missions');
     finalChoice.classList.toggle('hidden', step.theme !== 'final-question');
     
-    const hideNext = (step.id === 10 || step.id === 11 || step.id === 13);
+    const hideNext = (step.id === 1 || step.id === 11 || step.id === 12 || step.id === 13);
     btnNext.classList.toggle('hidden', hideNext);
+    btnNext.innerText = step.btnText || "Continuar";
+
+    // Manejo de Imágenes Dinámicas
+    imageWrapper.innerHTML = ''; 
+    if (step.isAlbum) {
+        // Estilo Álbum Vintage para pág 14
+        step.images.forEach(src => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.className = "album-img";
+            imageWrapper.appendChild(img);
+        });
+    } else if (step.images) {
+        // Rotación de imágenes (Pág 3, 4, 8)
+        const img = document.createElement('img');
+        img.src = step.images[0];
+        img.id = "main-image";
+        imageWrapper.appendChild(img);
+        
+        // Cambiar imagen después de un tiempo (secuencia)
+        if (step.id === 4) {
+            setTimeout(() => { img.src = step.images[1]; }, 3000);
+        } else if (step.id === 3) {
+            setTimeout(() => { 
+                const img2 = document.createElement('img');
+                img2.src = step.images[1];
+                img2.className = "side-img";
+                imageWrapper.appendChild(img2);
+            }, 2000);
+        }
+    } else {
+        const img = document.createElement('img');
+        img.src = step.image;
+        img.id = "main-image";
+        if (step.fullImage) img.className = "full-screen-img";
+        imageWrapper.appendChild(img);
+    }
 
     resetDodgingButton(btnGamerNo);
-    if (step.id === 10) setupDodgingButton(btnGamerNo);
+    if (step.id === 11) setupDodgingButton(btnGamerNo);
 
-    mainImage.src = step.image;
     typeWriter(step.text, mainText);
 }
 
@@ -71,7 +130,6 @@ function nextStep() {
     screen.classList.add('page-flip-exit');
     setTimeout(() => {
         currentStepIndex++;
-        if (currentStepIndex >= storySteps.length) currentStepIndex = 0;
         showStep();
         screen.classList.remove('page-flip-exit');
         screen.classList.add('page-flip-enter');
@@ -94,7 +152,6 @@ function addClickAndTouch(element, callback) {
 addClickAndTouch(btnNext, nextStep);
 addClickAndTouch(btnGamerYes, nextStep);
 
-// LÓGICA DE MISIONES (SIN ALERT)
 window.selectMission = function(id) {
     nextStep();
 };
