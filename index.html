@@ -14,17 +14,20 @@
 
     <div class="main-container">
         
-        <!-- PANTALLA 1: EL SOBRE FÍSICO -->
+        <!-- PANTALLA 1: EL SOBRE (Estructura Corregida) -->
         <section id="screen-envelope" class="screen active">
             <div class="envelope-wrapper">
                 <div class="envelope" id="envelope-main">
-                    <div class="flap"></div>
+                    <!-- Tapa con contenido frontal -->
+                    <div class="flap">
+                        <div class="envelope-front-content">
+                            <img src="img/im1.jpeg" class="im1-front" alt="im1">
+                            <p class="elegant-emergency">MENSAJE IMPORTANTE PARA MARIA 🚨</p>
+                        </div>
+                    </div>
                     <div class="pocket"></div>
                     <div class="letter-preview">
-                        <!-- Imagen im1 en la esquina -->
-                        <img src="img/im1.jpeg" class="im1-corner" alt="icon">
-                        <p class="emergency-text">MENSAJE IMPORTANTE PARA MARIA 🚨👮</p>
-                        <p class="click-instruction">Click aquí para abrir</p>
+                        <p class="click-instruction">Haz clic abajo para descubrirlo...</p>
                         <button id="btn-open-envelope" class="btn-red-open">ABRIR CARTA</button>
                     </div>
                 </div>
@@ -32,17 +35,16 @@
             <p class="instruction">Toca el botón para leer...</p>
         </section>
 
-        <!-- PANTALLA DINÁMICA DE LA HISTORIA -->
+        <!-- PANTALLA 2: HISTORIA INTERACTIVA (14 PASOS) -->
         <section id="story-screen" class="screen">
             <div id="card-container" class="story-card">
-                <div id="image-wrapper" class="image-container">
-                    <!-- Imágenes dinámicas -->
-                </div>
-
+                <div id="image-wrapper" class="image-container"></div>
+                
                 <div class="text-container">
                     <p id="main-text" class="typewriter"></p>
                 </div>
 
+                <!-- Modos Gamer y Misiones -->
                 <div id="gamer-container" class="hidden">
                     <div id="gamer-choice-10" class="hidden">
                         <button id="btn-gamer-yes" class="gamer-btn-main">CONTINUE</button>
@@ -52,12 +54,14 @@
                         <button class="mission-btn" onclick="selectMission(1)">Misión 1: Ir a cenar 🍕</button>
                         <button class="mission-btn" onclick="selectMission(2)">Misión 2: Paseo de fotos 📸</button>
                         <button class="mission-btn" onclick="selectMission(3)">Misión 3: Una película 🍿</button>
-                        <button class="mission-btn locked" disabled>Misión 4: Ir a bailar (BLOQUEADO 🔒)</button>
+                        <button class="mission-btn locked red-retro" disabled>
+                            Mision 4: Ir a Bailar (BLOQUEADO 🔒) 
+                            <span class="mission-subtext">Nivel insuficiente, Se necesita pasar de nivel: Ganarse la confianza de mama</span>
+                        </button>
                     </div>
                 </div>
 
                 <div id="standard-controls" class="controls">
-                    <img id="cat-reader" class="cat-animation" src="https://media.giphy.com/media/VbnUQpnihPSIgIX2v1/giphy.gif" alt="Gato">
                     <button id="btn-next" class="btn">Continuar</button>
                 </div>
 
