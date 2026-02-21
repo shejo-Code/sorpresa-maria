@@ -10,51 +10,61 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body class="theme-dark">
-    <!-- Overlay de Emergencia -->
     <div id="emergency-light" class="hidden"></div>
 
     <div class="main-container">
-        <section id="story-screen" class="screen active">
+        
+        <!-- PANTALLA 1: EL SOBRE FÍSICO -->
+        <section id="screen-envelope" class="screen active">
+            <div class="envelope-wrapper">
+                <div class="envelope" id="envelope-main">
+                    <div class="flap"></div>
+                    <div class="pocket"></div>
+                    <div class="letter-preview">
+                        <!-- Imagen im1 en la esquina -->
+                        <img src="img/im1.jpeg" class="im1-corner" alt="icon">
+                        <p class="emergency-text">MENSAJE IMPORTANTE PARA MARIA 🚨👮</p>
+                        <p class="click-instruction">Click aquí para abrir</p>
+                        <button id="btn-open-envelope" class="btn-red-open">ABRIR CARTA</button>
+                    </div>
+                </div>
+            </div>
+            <p class="instruction">Toca el botón para leer...</p>
+        </section>
+
+        <!-- PANTALLA DINÁMICA DE LA HISTORIA -->
+        <section id="story-screen" class="screen">
             <div id="card-container" class="story-card">
-                
                 <div id="image-wrapper" class="image-container">
-                    <img id="main-image" src="" alt="Recuerdo">
+                    <!-- Imágenes dinámicas -->
                 </div>
 
                 <div class="text-container">
                     <p id="main-text" class="typewriter"></p>
                 </div>
 
-                <!-- MENÚ GAMER DINÁMICO (Pág 10 y 11) -->
                 <div id="gamer-container" class="hidden">
-                    <!-- Botones Pág 10 -->
                     <div id="gamer-choice-10" class="hidden">
                         <button id="btn-gamer-yes" class="gamer-btn-main">CONTINUE</button>
                         <button id="btn-gamer-no" class="gamer-btn-no">NO</button>
                     </div>
-
-                    <!-- Lista de Misiones Pág 11 -->
                     <div id="mission-list" class="hidden">
                         <button class="mission-btn" onclick="selectMission(1)">Misión 1: Ir a cenar 🍕</button>
                         <button class="mission-btn" onclick="selectMission(2)">Misión 2: Paseo de fotos 📸</button>
                         <button class="mission-btn" onclick="selectMission(3)">Misión 3: Una película 🍿</button>
                         <button class="mission-btn locked" disabled>Misión 4: Ir a bailar (BLOQUEADO 🔒)</button>
-                        <p class="lock-desc">Nivel insuficiente: Derrota al jefe final (Permiso de la mamá)</p>
                     </div>
                 </div>
 
-                <!-- CONTROLES ESTÁNDAR -->
                 <div id="standard-controls" class="controls">
                     <img id="cat-reader" class="cat-animation" src="https://media.giphy.com/media/VbnUQpnihPSIgIX2v1/giphy.gif" alt="Gato">
                     <button id="btn-next" class="btn">Continuar</button>
                 </div>
 
-                <!-- BOTONES FINALES (Pág 13) -->
                 <div id="final-choice" class="hidden">
                     <button id="btn-yes-final" class="btn-final-yes">SÍ 😍</button>
                     <button id="btn-no-final" class="btn-final-no">No 😢</button>
                 </div>
-
             </div>
         </section>
     </div>
